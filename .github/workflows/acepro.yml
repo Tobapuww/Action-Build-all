@@ -37,7 +37,7 @@ jobs:
       - name: Initialize repo and sync
         run: |
           mkdir kernel_workspace && cd kernel_workspace
-          repo init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/sm8475 -m oneplus_acepro_v.xml --depth=1
+          repo init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/sm8475 -m oneplus_ace_pro_v.xml --depth=1
           repo sync -c -j$(nproc --all) --no-tags --no-clone-bundle --force-sync
           if [  -e kernel_platform/common/BUILD.bazel ]; then
             sed -i '/^[[:space:]]*"protected_exports_list"[[:space:]]*:[[:space:]]*"android\/abi_gki_protected_exports_aarch64",$/d' kernel_platform/common/BUILD.bazel
@@ -287,7 +287,7 @@ jobs:
       - name: Auto map FEIL to Android version by manifest
         id: feil_clean
         run: |
-          feil="oneplus_acepro_v"
+          feil="oneplus_ace_pro_v"
           cpu="sm8475"
           xml=".repo/manifests/${feil}.xml"
 
